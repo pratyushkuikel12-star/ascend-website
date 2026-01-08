@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SEO Services in Nepal | Ascend</title>
+  <meta name="description" content="Ascend delivers professional SEO services in Nepal. Rank higher, get more traffic, and grow your business with expert technical SEO, local optimization, and content strategy.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://yourdomain.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SEO Services in Nepal | Ascend">
+  <meta property="og:description" content="Grow your business with expert SEO strategies in Nepal. Technical SEO, local SEO, and content strategy that deliver results.">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://yourdomain.com/images/og-hero.jpg">
+
+  <!-- Schema Markup (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ascend",
+    "url": "https://yourdomain.com/",
+    "email": "youremail@yourdomain.com",
+    "image": "https://yourdomain.com/images/ascend-logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "NP"
+    },
+    "description": "Professional SEO services in Nepal helping businesses rank higher and grow through technical SEO, local optimization, and content strategy."
+  }
+  </script>
+
+  <style>
+    :root {
+      /* Update this to your exact brand red from the logo if needed */
+      --accent: #e63946;
+      --text: #222222;
+      --bg: #ffffff;
+      --muted-bg: #f7f7f8;
+      --border: #e5e7eb;
+      --link: #e63946;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* Layout containers */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar */
+    .topbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand img {
+      height: 100px;
+      width: auto;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .brand .name {
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: color 200ms ease, background 200ms ease;
+    }
+    nav a:hover {
+      color: var(--accent);
+      background: rgba(230,57,70,0.08);
+    }
+
+    /* Hero */
+    header.hero {
+      background: var(--muted-bg);
+      padding: 80px 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .hero h1 {
+      color: var(--text);
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+    .hero p {
+      margin: 0 0 22px;
+      font-size: 1.05rem;
+      color: #444;
+    }
+    .cta {
+      display: inline-block;
+      padding: 12px 22px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(230,57,70,0.25);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(230,57,70,0.35);
+      background: #cc2f3c;
+    }
+    .hero-media {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .caption {
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      color: #555;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 0;
+    }
+    section h2 {
+      color: var(--text);
+      font-size: 1.6rem;
+      margin: 0 0 12px;
+    }
+    section .subhead {
+      color: #555;
+      margin-bottom: 26px;
+    }
+
+    /* Services grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+      border-color: rgba(230,57,70,0.4);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+    .card .card-body {
+      padding: 16px;
+    }
+    .card .card-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .card .card-text {
+      color: #555;
+      font-size: 0.98rem;
+    }
+
+    /* Process list */
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .step {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .step .num {
+      display: inline-block;
+      background: rgba(230,57,70,0.1);
+      color: var(--accent);
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .step h3 {
+      font-size: 1.05rem;
+      margin: 6px 0 8px;
+      color: var(--text);
+    }
+    .step p {
+      color: #555;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .testimonial {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .testimonial .quote {
+      font-style: italic;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    .testimonial .person {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .testimonial .person img {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+    .testimonial .person .meta {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .testimonial .person .meta strong {
+      color: var(--text);
+    }
+
+    /* Audit section */
+    .audit {
+      background: var(--muted-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .audit .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .audit .panel {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 8px 0;
+      color: #555;
+    }
+    .list li .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* Contact form */
+    form {
+      margin-top: 18px;
+    }
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 10px 0 6px;
+      color: var(--text);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+    }
+    textarea { resize: vertical; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      background: var(--accent);
+      color: #fff;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Simple reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 400ms ease, transform 400ms ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .process { grid-template-columns: 1fr 1fr; }
+      .audit .content { grid-template-columns: 1fr; }
+      .testimonials { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav { display: none; } /* keep it clean on small screens */
+      .grid-3 { grid-template-columns: 1fr; }
+      .process { grid-template-columns: 1fr; }
+      .testimonials { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      header.hero { padding: 56px 0; }
+      section { padding: 56px 0; }
+      .hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top bar with logo and nav -->
+  <div class="topbar">
+    <div class="container">
+      <a class="brand" href="#home" aria-label="Ascend home">
+        <!-- Replace with your actual logo file -->
+        <img src="images/Screenshot 2026-01-08 153203.png" alt="Ascend logo">
+      </a>
+      <nav aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#results">Results</a>
+        <a href="#audit">Free Audit</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="container hero-grid reveal">
+      <div>
+        <h1>SEO Services in Nepal that help you rank, get found, and grow</h1>
+        <p>Technical SEO, local optimization, and content strategy focused on outcomes—not ads. Transparent work, measurable impact.</p>
+        <a class="cta" href="#audit">Get a free SEO audit</a>
+      </div>
+      <div class="hero-media">
+        <!-- Realistic stock image: laptop with Google Search Console -->
+        <img
+          src="images/Google-console-laptop.png"
+          alt="Laptop showing Google Search Console dashboard"
+          loading="lazy">
+        <div class="caption">We diagnose issues in Google Search Console and fix what’s holding your rankings back.</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- What we do -->
+  <section id="services">
+    <div class="container reveal">
+      <h2>What we do</h2>
+      <p class="subhead">We help Nepali businesses rank higher on Google through technical SEO, content strategy, and local optimization.</p>
+
+      <div class="grid-3">
+        <!-- Technical SEO -->
+        <div class="card">
+          <img
+            src="images/Generic-Web-Logo.png"
+            alt="Code editor and website audit tools for technical SEO"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Technical SEO audits</div>
+            <p class="card-text">Fix crawl, indexation, and site structure issues. Improve Core Web Vitals for better performance and rankings.</p>
+          </div>
+        </div>
+
+        <!-- Local SEO -->
+        <div class="card">
+          <img
+            src="images/local-seo-google-maps.jpg"
+            alt="Google Maps with local business listings and location pins"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Local SEO & Maps</div>
+            <p class="card-text">Optimize Google Business Profile and local citations to appear in map packs and nearby searches.</p>
+          </div>
+        </div>
+
+        <!-- Content Strategy -->
+        <div class="card">
+          <img
+            src="images/content-strategy-planning.jpg"
+            alt="Content strategy planning with notes and analytics"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Keyword & content strategy</div>
+            <p class="card-text">Find high‑intent keywords and build content that converts. Align pages with searcher needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SEO matters -->
+  <section>
+    <div class="container reveal">
+      <h2>Why SEO matters in Nepal</h2>
+      <p class="subhead">Customers search before they buy. If you don’t show up, your competitors will.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <img
+            src="images/search-demand-trends.jpg"
+            alt="Search demand trends chart depicting increased online searches"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Demand you can capture</div>
+            <p class="card-text">Organic search sends ready‑to‑buy visitors. Meet them with useful, trustworthy pages.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="images/evergreen-traffic.jpg"
+            alt="Evergreen traffic representation with upward performance graph"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Evergreen growth</div>
+            <p class="card-text">Unlike ads, strong SEO compounds. Content and technical gains continue paying off.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="images/competitive-edge.jpg"
+            alt="Competitive edge visualization with highlighted results on SERP"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Beat competitors</div>
+            <p class="card-text">Out‑execute them on relevance, quality, and experience. Take the top spots and stay there.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container reveal">
+      <h2>Our SEO process</h2>
+      <p class="subhead">A pragmatic, repeatable approach that prioritizes impact and clarity.</p>
+
+      <div class="process">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Audit & baseline</h3>
+          <p>Website and competitor review. Identify technical blockers and quick wins.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Keyword & opportunities</h3>
+          <p>Research queries with buying intent. Map topics to pages and content.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Fix & optimize</h3>
+          <p>Technical and on‑page improvements. Enhance UX and Core Web Vitals.</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>Track & iterate</h3>
+          <p>Measure rankings and conversions. Report clearly and keep improving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results / Case studies -->
+  <section id="results">
+    <div class="container reveal">
+      <h2>Results we deliver</h2>
+      <p class="subhead">Clear wins backed by data—rankings, traffic, and leads that move the business.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <img
+            src="images/case-increase-organic-traffic.jpg"
+            alt="Analytics dashboard showing increase in organic traffic"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">+128% organic traffic</div>
+            <p class="card-text">Technical fixes and content expansion for a local service business in 6 months.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="images/case-map-pack-wins.jpg"
+            alt="Google Maps results highlighting top ranked local listing"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">Top 3 in map pack</div>
+            <p class="card-text">Google Business Profile optimization and review strategy for a Kathmandu clinic.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="images/case-conversion-growth.jpg"
+            alt="Conversion growth chart showing improved lead numbers"
+            loading="lazy">
+          <div class="card-body">
+            <div class="card-title">More qualified leads</div>
+            <p class="card-text">Better landing pages and intent‑aligned content improved conversion rates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <div class="container reveal">
+      <h2>What our clients say</h2>
+      <p class="subhead">Real feedback from teams we’ve helped grow.</p>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="quote">“Ascend helped us rank #1 for our main local search. Leads doubled within three months.”</div>
+          <div class="person">
+            <img src="images/testimonial-1.jpg" alt="Portrait of client giving testimonial" loading="lazy">
+            <div class="meta"><strong>R. Sharma</strong><br><span>Owner, Local Services</span></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">“Clear reporting and real results. Technical fixes made our site faster and more visible.”</div>
+          <div class="person">
+            <img src="images/testimonial-2.jpg" alt="Portrait of client giving testimonial" loading="lazy">
+            <div class="meta"><strong>P. Gurung</strong><br><span>Manager, Healthcare</span></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">“They focus on outcomes, not fluff. We finally understand what moves the needle.”</div>
+          <div class="person">
+            <img src="images/testimonial-3.jpg" alt="Portrait of client giving testimonial" loading="lazy">
+            <div class="meta"><strong>S. Lama</strong><br><span>Director, Education</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free audit -->
+  <section id="audit" class="audit">
+    <div class="container reveal">
+      <h2>Free SEO audit</h2>
+      <p class="subhead">Get a clear breakdown of what’s holding your website back—and the exact steps to fix it.</p>
+
+      <div class="content">
+        <div class="panel">
+          <h3>What you’ll receive</h3>
+          <ul class="list">
+            <li><span class="dot"></span>Technical health check (crawl, index, CWV)</li>
+            <li><span class="dot"></span>Keyword & content opportunity snapshot</li>
+            <li><span class="dot"></span>Quick wins prioritized by impact</li>
+            <li><span class="dot"></span>Action plan you can implement</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <!-- Realistic stock image: desktop with analytics dashboard -->
+          <img
+            src="images/desktop-analytics-setup.jpg"
+            alt="Desktop setup displaying analytics and performance dashboards"
+            loading="lazy"
+            style="width:100%; border-radius:8px;">
+          <p style="margin-top:12px; color:#555;">We review your Google Search Console and analytics data to pinpoint high‑impact fixes.</p>
+          <a class="cta" href="#contact" style="margin-top:8px; display:inline-block;">Request your audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container reveal">
+      <h2>Contact us</h2>
+      <p class="subhead">Tell us about your goals. We’ll reply with next steps and a clear plan.</p>
+
+      <div class="form-row">
+        <div>
+          <!-- Realistic stock image: office desk -->
+          <img
+            src="images/office-desk-setup.jpg"
+            alt="Clean office desk setup with laptop and notepad"
+            loading="lazy"
+            style="width:100%; border-radius:10px; border:1px solid var(--border);">
+        </div>
+        <div>
+          <form action="mailto:youremail@yourdomain.com" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button class="cta" type="submit" style="border:none;">Send message</button>
+          </form>
+          <p style="margin-top:12px; color:#555;">Or email us directly at <strong>youremail@yourdomain.com</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Ascend | Nepal</p>
+    <p>Built with purpose. Driven by outcomes.</p>
+  </footer>
+
+  <!-- Tiny IntersectionObserver for reveal animations -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>
