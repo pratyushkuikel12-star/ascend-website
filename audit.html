@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ascend SEO Audit</title>
+  <style>
+    :root {
+      --primary-color: #0A1F44;
+      --accent-color: #FF6B00;
+      --bg-color: #F9FAFB;
+      --text-color: #333;
+      --radius: 10px;
+      --success: #2ecc71;
+      --error: #e74c3c;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      max-width: 1000px;
+      width: 100%;
+    }
+    h1 {
+      color: var(--primary-color);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    input {
+      flex: 1;
+      padding: 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      font-size: 1rem;
+    }
+    button {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.3s ease;
+    }
+    button:hover { background: #e86f00; }
+    button:active { transform: scale(0.98); }
+    .score {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+      justify-content: center;
+    }
+    .badge {
+      background: #fff3e8;
+      color: var(--accent-color);
+      border: 1px solid #ffd7b3;
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      font-weight: 600;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #f9f9fb;
+      border: 1px solid #e0e0e0;
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--accent-color);
+      font-size: 1.05rem;
+    }
+    .muted { color: #666; font-size: 0.9rem; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .ok { color: var(--success); font-weight: 600; }
+    .fail { color: var(--error); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ascend SEO Audit</h1>
+    <form id="auditForm">
+      <input type="text" id="urlInput" placeholder="Enter website (e.g. ascend.sbs)" required>
+      <button type="submit">Run Audit</button>
+    </form>
+
+    <div id="status" class="muted">Awaiting input…</div>
+    <div id="results" class="grid"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('auditForm');
+    const statusEl = document.getElementById('status');
+    const resultsEl = document.getElementById('results');
+
+    const normalize = (u) => {
+      let url = u.trim();
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+      }
+      return url;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const raw = document.getElementById('urlInput').value;
+      const url = normalize(raw);
+
+      statusEl.textContent = 'Running audit…';
+      resultsEl.innerHTML = '';
+
+      try {
+        const res = await fetch('http://localhost:3000/api/audit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url })
+        });
+        const data = await res.json();
+
+        statusEl.innerHTML = `
+          <div class="score">
+            <span class="badge">On‑Page: ${data.score.onPage}</span>
+            <span class="badge">Technical: ${data.score.technical}</span>
+            <span class="badge">Discoverability: ${data.score.discoverability}</span>
+          </div>
+          <div class="muted mono">${data.message}</div>
+        `;
+
+        resultsEl.innerHTML = `
+          <div class="card">
+            <h2>Meta</h2>
+            <div><strong>Title:</strong> ${data.meta.title || '—'} <span class="muted">(len: ${data.meta.title?.length || 0})</span></div>
+            <div><strong>Description:</strong> ${data.meta.description || '—'}</div>
+            <div><strong>Canonical:</strong> ${data.meta.canonical || '—'}</div>
+            <div><strong>Robots:</strong> ${data.meta.robots || '—'}</div>
+          </div>
+
+          <div class="card">
+            <h2>Headings</h2>
+            <div><strong>H1:</strong> ${data.headings.h1[0] || '—'}</div>
+            <div class="muted">H2 count: ${data.headings.h2.length}, H3 count: ${data.headings.h3.length}</div>
+          </div>
+
+          <div class="card">
+            <h2>Images</h2>
+            <div><strong>Total:</strong> ${data.images.total}</div>
+            <div><strong>Missing alt:</strong> ${data.images.missingAlt === 0 ? '<span class="ok">✅ None</span>' : '<span class="fail">❌ ' + data.images.missingAlt + '</span>'}</div>
+          </div>
+
+          <div class="card">
+            <h2>Links</h2>
+            <div><strong>Total:</strong> ${data.links.total}</div>
+            <div class="muted">Samples:</div>
+            <div class="mono">${data.links.samples.slice(0,5).join('\\n')}</div>
+          </div>
+
+          <div class="card">
+            <h2>Schema</h2>
+            <div><strong>Blocks:</strong> ${data.schema.count}</div>
+            <div class="muted">Types:</div>
+            <div class="mono">${data.schema.types.join(', ') || '—'}</div>
+          </div>
+
+          <div class="card">
+            <h2>Performance</h2>
+            <div><strong>Viewport:</strong> ${data.performanceHints.hasViewport ? '<span class="ok">✅ Present</span>' : '<span class="fail">❌ Missing</span>'}</div>
+            <div><strong>Preload:</strong> ${data.performanceHints.hasPreload ? '<span class="ok">✅ Yes</span>' : '<span class="fail">❌ No</span>'}</div>
+            <div><strong>Preconnect:</strong> ${data.performanceHints.hasPreconnect ? '<span class="ok">✅ Yes</span>' : '<span class="fail">❌ No</span>'}</div>
+          </div>
+
+          <div class="card">
+            <h2>Indexability</h2>
+            <div><strong>Noindex:</strong> ${data.indexability.noindex ? '<span class="fail">❌ Yes</span>' : '<span class="ok">✅ No</span>'}</div>
+            <div><strong>Nofollow:</strong> ${data.indexability.nofollow ? '<span class="fail">❌ Yes</span>' : '<span class="ok">✅ No</span>'}</div>
+            <div><strong>Canonical:</strong> ${data.indexability.canonical || '—'}</div>
+          </div>
+
+          <div class="card">
+            <h2>Crawlability</h2>
+            <div><strong>Robots.txt:</strong> ${data.crawlability.robotsTxt || '—'}</div>
+            <div><strong>Sitemap:</strong> ${data.crawlability.sitemap || '—'}</div>
+          </div>
+        `;
+      } catch (err) {
+        statusEl.innerHTML = '<span class="fail">Error: ' + err.message + '</span>';
+      }
+    });
+  </script>
+</body>
+</html>
