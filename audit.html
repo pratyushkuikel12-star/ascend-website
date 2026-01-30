@@ -130,7 +130,7 @@
       resultsEl.innerHTML = '';
 
       try {
-        const res = await fetch('http://localhost:3000/api/audit', {
+        const res = await fetch('https://ascend-backend.onrender.com/api/audit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url })
@@ -207,4 +207,5 @@
     });
   </script>
 </body>
+
 </html>
